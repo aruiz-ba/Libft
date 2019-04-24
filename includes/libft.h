@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 11:29:37 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/01/08 13:22:40 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/04/24 16:56:21 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,6 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_iswhitespace(char c);
+int				get_next_line(const int fd, char **line);
+char			*ft_strtrimstr(char const *s, char const *a);
 #endif

@@ -6,7 +6,7 @@
 #    By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 16:04:50 by aruiz-ba          #+#    #+#              #
-#    Updated: 2019/01/08 13:23:03 by aruiz-ba         ###   ########.fr        #
+#    Updated: 2019/04/24 16:56:54 by aruiz-ba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,8 @@ SRC = ft_atoi.c\
 		ft_lstiter.c\
 		ft_lstmap.c\
 		ft_iswhitespace.c\
+		get_next_line.c\
+		ft_strtrimstr.c
 
 OBJ = $(SRC:.c=.o)
 
