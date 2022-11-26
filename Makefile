@@ -6,13 +6,13 @@
 #    By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 16:04:50 by aruiz-ba          #+#    #+#              #
-#    Updated: 2019/04/24 16:56:54 by aruiz-ba         ###   ########.fr        #
+#    Updated: 2019/05/07 16:53:23 by aruiz-ba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
-SRC = ft_atoi.c\
+NAME 	= libft.a
+CFLAGS	= -Wall -Werror -Wextra -I. -c
+SRC		= ft_atoi.c\
 		ft_strrchr.c\
 		ft_isalpha.c\
 		ft_isdigit.c\
@@ -75,41 +75,23 @@ SRC = ft_atoi.c\
 		get_next_line.c\
 		ft_strtrimstr.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=%.o)
 
-SRCDIR = srcs
-
-OBJDIR = objs
-
-SRCS = $(addprefix $(SRCDIR)/, $(SRC))
-
-OBJS = $(addprefix $(OBJDIR)/, $(OBJ))
-
-HEADER = -I includes
-
-CC = gcc
-
-CFLAGS = -c -Wall -Wextra -Werror
-
-NAME = libft.a
+INCDIR = ./includes/
 
 all: $(NAME)
 
-$(OBJS): $(SRCS)
-	/bin/mkdir -p $(OBJDIR) ;
-	$(CC) $(CFLAGS) $(SRCS) $(HEADER) ;
-	/bin/mv $(OBJ) $(OBJDIR)/
+$(NAME): $(OBJ)
+		ar rcs $(NAME) $(OBJ)
 
-$(NAME): $(OBJS)
-	ar rcs $@ $^
-	ranlib $@
+$(OBJ): $(SRC)
+		 gcc $(CFLAGS) $(SRC)
 
 clean:
-	/bin/rm -rf $(OBJDIR)
+		rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
-
 .PHONY: clean fclean all re
